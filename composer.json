@@ -3,6 +3,14 @@
     "license": "MIT",
     "type": "project",
     "description": "The Symfony Demo Application On Roids",
+    "authors": [
+        {
+            "name": "Alfonso M. García Astorga",
+            "email": "me@alfon.io",
+            "homepage": "https://alfon.io",
+            "role": "Developer"
+        }
+    ],
     "autoload": {
         "psr-4": { "": "src/" },
         "classmap": [ "app/AppKernel.php", "app/AppCache.php" ]
