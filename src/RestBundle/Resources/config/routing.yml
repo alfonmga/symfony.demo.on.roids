@@ -1,0 +1,6 @@
+rest_controller:
+    path:     /
+    type:     rest
+    resource: RestBundle\Controller\RestController
+    prefix: v1
+    name_prefix: api_v1_

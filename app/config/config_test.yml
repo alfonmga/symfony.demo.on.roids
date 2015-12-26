@@ -21,6 +21,13 @@ swiftmailer:
 # In this case we just need to define a different path for the application database.
 doctrine:
     dbal:
+        driver:   "%database_driver%"
+        host:     "%database_host%"
+        port:     "%database_port%"
+        dbname:   "%database_name%"
+        user:     "%database_user%"
+        password: "%database_password%"
+        charset:  UTF8
         path: "%kernel.root_dir%/data/blog_test.sqlite"
 
 # this configuration simplifies testing URLs protected by the security mechanism
@@ -29,3 +36,6 @@ security:
     firewalls:
         secured_area:
             http_basic: ~
+
+liip_functional_test:
+    cache_sqlite_db: true

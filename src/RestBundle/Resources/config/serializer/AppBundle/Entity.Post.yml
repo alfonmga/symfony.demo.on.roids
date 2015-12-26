@@ -1,0 +1,17 @@
+AppBundle\Entity\Post:
+  xml_root_name: post
+  relations:
+    -
+        rel: self
+        href:
+          route: api_v1_get_post
+          absolute: true
+          parameters:
+             id: expr(object.getId())
+    -
+        rel: Post comments
+        href:
+          route: api_v1_get_comments_from_post
+          absolute: true
+          parameters:
+             id: expr(object.getId())

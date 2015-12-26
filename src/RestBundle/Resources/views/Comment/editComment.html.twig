@@ -1,0 +1,18 @@
+{% extends 'RestBundle::api_base_layout.html.twig' %}
+
+{% block title "Edit comment" %}
+
+{% block content %}
+    <h1 class="title">Edit comment #{{ form.vars.value.id }}</h1>
+    <p>
+        <a href="{{ path('api_v1_get_comments') }}">Back to comments list</a>
+        <a href="{{ path('api_v1_get_comment', {'id': form.vars.value.id}) }}" style="float:right">View comment #{{ form.vars.value.id }}</a>
+    </p>
+    <form action="{{ url('api_v1_edit_comment', {'id': form.vars.value.id}) }}" method="POST" {{ form_enctype(form) }}>
+        <input type="hidden" name="_method" value="patch" />
+        {{ form_widget(form) }}
+        <div class="custom-form">
+            <input type="submit" value="Edit comment">
+        </div>
+    </form>
+{% endblock %}

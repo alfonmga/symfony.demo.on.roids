@@ -1,0 +1,60 @@
+
+{% extends 'RestBundle::api_base_layout.html.twig' %}
+
+{% block title "View post" %}
+
+{% block content %}
+    <h1 class="title">Post #{{ post.id }}</h1>
+    <form action="{{ path('api_v1_delete_post', {'id': post.id }) }}" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <p>
+        <a href="{{ path('api_v1_get_posts') }}">Back to post list</a>
+        <input type="submit" value="Delete Post" style="float:right">
+        <span style="float:right">&nbsp;|&nbsp;</span>
+        <a href="{{ path('api_v1_edit_post_form_hateoas', {'id': post.id}) }}" style="float:right">Edit post</a>
+    </p>
+    </form>
+    <div class="main-content">
+        <h1 class="content-title">{{ post.title }}</h1>
+        <hr>
+        <label class="content-label">Summary:</label>
+        <div class="content-summary">
+            {{ post.summary }}
+        </div>
+        <hr>
+        <label class="content-label">Content:</label>
+        <div class="post-content">
+            {{ post.content|md2html }}
+        </div>
+        <hr>
+        <label class="content-label">Author Email:</label>
+        <div>
+            {{ post.authorEmail }}
+        </div>
+        <hr>
+        <label class="content-label">Published Date:</label>
+        <div>
+            {{ post.publishedAt|localizeddate('medium', 'short') }}
+        </div>
+        <hr>
+    </div>
+    <div class="main-comments">
+        <h1 class="title">
+            {{ post.comments|length }} comments
+            (<a href="{{ path('api_v1_new_comment_form_hateoas', {'id': post.id}) }}">add a new comment</a>)
+        </h1>
+        {% if post.comments|length > 0 %}
+        {% for comment in post.comments %}
+            <div class="row-comment">
+                <div>
+                   (<a href="{{ path('api_v1_get_comment', {'id': comment.id}) }}">#{{ comment.id }}</a>) <b>{{ comment.authorEmail }}</b> - {{ comment.publishedAt|localizeddate('medium', 'short') }}
+                </div>
+                <div>
+                    {{ comment.content }}
+                </div>
+            </div>
+            <hr>
+        {% endfor %}
+        {% endif %}
+    </div>
+{% endblock %}

@@ -1,0 +1,35 @@
+
+{% extends 'RestBundle::api_base_layout.html.twig' %}
+
+{% block title "View comment" %}
+
+{% block content %}
+    <h1 class="title">Comment #{{ comment.id }}</h1>
+    <form action="{{ path('api_v1_delete_comment', {'id': comment.id }) }}" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <p>
+        <a href="{{ path('api_v1_get_comments') }}">Back to comments list</a>
+        <input type="submit" value="Delete Comment" style="float:right">
+        <span style="float:right">&nbsp;|&nbsp;</span>
+        <a href="{{ path('api_v1_edit_comment_form_hateoas', {'id': comment.id}) }}" style="float:right">Edit comment</a>
+        <span style="float:right">&nbsp;|&nbsp;</span>
+        <a href="{{ path('api_v1_get_post', {'id': comment.post.id}) }}" style="float:right">View post #{{ comment.post.id }}</a>
+    </p>
+    </form>
+    <div class="main-content">
+        <label class="content-label">Comment Content:</label>
+        <div>
+            {{ comment.content }}
+        </div>
+        <hr>
+        <label class="content-label">Author Email:</label>
+        <div>
+            {{ comment.authorEmail }}
+        </div>
+        <hr>
+        <label class="content-label">Published Date</label>
+        <div>
+            {{ comment.publishedAt|date }}
+        </div>
+    </div>
+{% endblock %}

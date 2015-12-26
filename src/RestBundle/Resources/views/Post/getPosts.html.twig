@@ -1,0 +1,22 @@
+{% extends "RestBundle::api_base_layout.html.twig" %}
+
+{% block title "Post list" %}
+
+{% block content %}
+    <h1 class="title">Post list ({{ posts|length }})</h1>
+    <p>
+        <a href="{{ path('api_v1_new_post_form_hateoas', {'_format':'html'}) }}">Create a new post</a>
+    </p>
+    <ul id="post-list">
+        {% for post in posts %}
+        <li>
+            <a href="{{ path('api_v1_get_post', {'id': post.id}) }}">{{ post.title }}</a>
+            [<a href="{{ path('api_v1_edit_post_form_hateoas', {'id': post.id}) }}"><b>Edit post</b></a>]
+            <form action="{{ path('api_v1_delete_post', {'id': post.id }) }}" method="post" style='display:inline;'>
+                <input type="hidden" name="_method" value="delete">
+                <input type="submit" value="Delete Post">
+            </form>
+        </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "TwigBundle::layout.html.twig" %}
+
+{% block title '' %}
+
+{% block head %}
+    <link rel="icon" sizes="16x16" href="{{ asset('favicon.ico') }}" />
+    <link rel="stylesheet" href="{{ asset('css/api.css') }}">
+{% endblock %}
+
+{% block body %}
+
+    <div class="block">
+        <h1 style="float: right">
+            <a href="{{ path('api_v1_index_api') }}">Resources Index</a>
+            |
+            <a href="{{ path('nelmio_api_doc_index') }}">API Doc</a>
+        </h1>
+        {% block content %}{% endblock %}
+    </div>
+
+{% endblock %}

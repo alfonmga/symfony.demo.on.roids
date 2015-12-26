@@ -1,0 +1,13 @@
+{% extends 'RestBundle::api_base_layout.html.twig' %}
+
+{% block title "Resources Index" %}
+
+{% block content %}
+    <h1 class="title">Resources</h1>
+    <h2>
+        <li>
+            <ul><a href="{{ path('api_v1_get_posts') }}">Posts</a></ul>
+            <ul><a href="{{ path('api_v1_get_comments') }}">Comments</a></ul>
+        </li>
+    </h2>
+{% endblock %}

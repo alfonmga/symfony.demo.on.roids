@@ -74,7 +74,6 @@ class BlogController extends Controller
     public function commentNewAction(Request $request, Post $post)
     {
         $form = $this->createForm('AppBundle\Form\CommentType');
-
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

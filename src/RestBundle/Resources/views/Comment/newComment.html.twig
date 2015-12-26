@@ -1,0 +1,17 @@
+{% extends 'RestBundle::api_base_layout.html.twig' %}
+
+{% block title "Add a new comment" %}
+
+{% block content %}
+    <h1 class="title">Add a new comment</h1>
+    <p>
+        <a href="{{ path('api_v1_get_post', {'id': app.request.get('id')}) }}">Back to post #{{ app.request.get('id') }}</a>
+    </p>
+    <form action="{{ url('api_v1_new_comment', {'id': app.request.get('id')}) }}" method="POST" {{ form_enctype(form) }}>
+        {{ form_row(form.content) }}
+        {{ form_row(form.authorEmail) }}
+        <div class="custom-form">
+            <input type="submit" value="Submit new comment">
+        </div>
+    </form>
+{% endblock %}

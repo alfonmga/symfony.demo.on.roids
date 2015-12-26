@@ -1,0 +1,20 @@
+{% extends 'RestBundle::api_base_layout.html.twig' %}
+
+{% block title "New post" %}
+
+{% block content %}
+    <h1 class="title">New post</h1>
+    <p>
+        <a href="{{ path('api_v1_get_posts') }}">Back to post list</a>
+    </p>
+    <form action="{{ url('api_v1_new_post') }}" method="POST" {{ form_enctype(form) }}>
+        {{ form_row(form.title) }}
+        {{ form_row(form.summary) }}
+        {{ form_row(form.content) }}
+        {{ form_row(form.authorEmail) }}
+        {{ form_row(form.publishedAt) }}
+        <div class="custom-form">
+            <input type="submit" value="Submit new post">
+        </div>
+    </form>
+{% endblock %}

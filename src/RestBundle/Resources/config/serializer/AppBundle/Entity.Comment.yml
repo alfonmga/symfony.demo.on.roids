@@ -1,0 +1,10 @@
+AppBundle\Entity\Comment:
+  xml_root_name: comment
+  relations:
+    -
+        rel: self
+        href:
+          route: api_v1_get_comment
+          absolute: true
+          parameters:
+             id: expr(object.getId())

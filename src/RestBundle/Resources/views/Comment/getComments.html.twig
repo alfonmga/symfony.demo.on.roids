@@ -1,0 +1,19 @@
+{% extends "RestBundle::api_base_layout.html.twig" %}
+
+{% block title "Comments list" %}
+
+{% block content %}
+    <h1 class="title">Comment list ({{ comments|length }})</h1>
+    <ul id="comment-list">
+        {% for comment in comments %}
+        <li>
+            <a href="{{ path('api_v1_get_comment', {'id': comment.id}) }}">Comment #{{ comment.id }}</a>
+            [<a href="{{ path('api_v1_edit_comment_form_hateoas', {'id': comment.id}) }}"><b>Edit comment</b></a>]
+            <form action="{{ path('api_v1_delete_comment', {'id': comment.id }) }}" method="post" style='display:inline;'>
+                <input type="hidden" name="_method" value="delete">
+                <input type="submit" value="Delete Comment">
+            </form>
+        </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
