@@ -1,8 +1,8 @@
 {
-    "name": "symfony/symfony-demo",
+    "name": "alfonsomga/symfony-demo-on-roids",
     "license": "MIT",
     "type": "project",
-    "description": "Symfony Demo Application",
+    "description": "The Symfony Demo Application On Roids",
     "autoload": {
         "psr-4": { "": "src/" },
         "classmap": [ "app/AppKernel.php", "app/AppCache.php" ]
