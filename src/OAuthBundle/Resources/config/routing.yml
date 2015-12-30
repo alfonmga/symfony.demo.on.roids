@@ -1,0 +1,13 @@
+hwi_oauth_login:
+    resource: "@HWIOAuthBundle/Resources/config/routing/login.xml"
+    prefix:   /oauth/login
+hwi_oauth_redirect:
+    resource: "@HWIOAuthBundle/Resources/config/routing/redirect.xml"
+    prefix:   /oauth/connect
+github_login:
+    pattern: /oauth/login/check-github
+
+oauth_dissconnect_service:
+    path: /oauth/service-disconnect/{service}/{usernameId}/{accessToken}
+    methods: POST
+    defaults:  { _controller: OAuthBundle:OAuth:disconnectService }

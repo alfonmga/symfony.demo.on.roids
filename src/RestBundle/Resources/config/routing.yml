@@ -4,3 +4,7 @@ rest_controller:
     resource: RestBundle\Controller\RestController
     prefix: v1
     name_prefix: api_v1_
+
+NelmioApiDocBundle:
+    resource: "@NelmioApiDocBundle/Resources/config/routing.yml"
+    prefix:   /doc

@@ -17,15 +17,12 @@ use Bazinga\Bundle\RestExtraBundle\Test\WebTestCase;
  */
 class RestControllerTest extends WebTestCase
 {
-    protected $container;
-
     protected $entityManager;
 
     public function __construct()
     {
         self::bootKernel(array('environment' => 'test', 'debug' => 'true'));
-        $this->container = static::$kernel->getContainer();
-        $this->entityManager = $this->container->get('doctrine')->getManager();
+        $this->entityManager = self::$kernel->getContainer()->get('doctrine')->getManager();
     }
 
     public function testResourcesIndex()

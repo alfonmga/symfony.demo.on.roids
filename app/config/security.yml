@@ -10,6 +10,8 @@ security:
         # To load users from somewhere else: http://symfony.com/doc/current/cookbook/security/custom_provider.html
         database_users:
             entity: { class: AppBundle:User, property: username }
+        my_custom_hwi_provider:
+             id: oauth.user_provider
 
     # http://symfony.com/doc/current/book/security.html#firewalls-authentication
     firewalls:
@@ -29,10 +31,17 @@ security:
                 # The name of the route where the login form lives
                 # When the user tries to access a protected page, they are redirected here
                 login_path: security_login_form
+                success_handler: app.login_success_handler
                 # Secure the login form against CSRF
                 # Reference: http://symfony.com/doc/current/cookbook/security/csrf_in_login_form.html
                 csrf_token_generator: security.csrf.token_manager
-
+            oauth:
+                resource_owners:
+                    github: "/oauth/login/check-github"
+                login_path: security_login_form
+                success_handler: app.login_success_handler
+                oauth_user_provider:
+                    service: oauth.user_provider
             logout:
                 # The route name the user can go to in order to logout
                 path: security_logout
