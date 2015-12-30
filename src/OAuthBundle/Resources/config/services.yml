@@ -1,7 +1,7 @@
 services:
     oauth.user_provider:
         class: OAuthBundle\Provider\UserProvider
-        arguments: [@doctrine.orm.entity_manager, @service_container]
+        arguments: ['@doctrine.orm.entity_manager', '@service_container']
     app.login_success_handler:
         class: OAuthBundle\Services\AuthenticationSuccessHandler
-        arguments:  [@security.authorization_checker, @router]
+        arguments:  ['@security.authorization_checker', '@router']
