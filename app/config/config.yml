@@ -54,6 +54,8 @@ twig:
     form_themes:
         - "bootstrap_3_layout.html.twig"
         - "form/fields.html.twig"
+    globals:
+        github_client_id: %github_client_id%
 
 # Assetic Configuration (used for managing web assets: CSS, JavaScript, Sass, etc.)
 assetic:
@@ -156,3 +158,13 @@ fos_http_cache:
                     cache_control: { public: true, max_age: 15, s_maxage: 30 }
                     last_modified: "-1 hour"
                     vary: [Accept-Encoding, Accept-Language]
+#HWI OAuthBundle
+hwi_oauth:
+    firewall_name: secured_area
+    resource_owners:
+        github:
+            type: github
+            client_id: %github_client_id%
+            client_secret: %github_client_secret%
+            options:
+                csrf: true

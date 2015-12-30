@@ -50,6 +50,21 @@
         </a>
     </div>
 
+    <div class="section">
+        {% if app.user.githubid is empty %}
+            <a href="{{ path('hwi_oauth_service_redirect', {"service": "github"}) }}" class="btn btn-lg btn-block btn-primary">
+                <i class="fa fa-github-square"></i> Add GitHub account
+            </a>
+        {% else %}
+            <form action="{{ path('oauth_dissconnect_service', {'service': 'github', 'usernameId': app.user.githubid, 'accessToken': app.user.githubaccesstoken}) }}" method="post">
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                <button type="submit" class="btn btn-lg btn-block btn-danger">
+                    <i class="fa fa-github-square"></i> Delete GitHub account
+                </button>
+            </form>
+        {% endif %}
+    </div>
+
     {{ parent() }}
 
     {{ show_source_code(_self) }}

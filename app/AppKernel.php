@@ -24,12 +24,14 @@ class AppKernel extends Kernel
             new CodeExplorerBundle\CodeExplorerBundle(),
             new AppBundle\AppBundle(),
             new RestBundle\RestBundle(),
+            new OAuthBundle\OAuthBundle(),
             new JMS\SerializerBundle\JMSSerializerBundle(),
             new FOS\RestBundle\FOSRestBundle(),
             new Nelmio\ApiDocBundle\NelmioApiDocBundle(),
             new FOS\HttpCacheBundle\FOSHttpCacheBundle(),
             new Bazinga\Bundle\HateoasBundle\BazingaHateoasBundle(),
             new Bazinga\Bundle\RestExtraBundle\BazingaRestExtraBundle(),
+            new HWI\Bundle\OAuthBundle\HWIOAuthBundle(),
         );
 
         // Some bundles are only used while developing the application or during

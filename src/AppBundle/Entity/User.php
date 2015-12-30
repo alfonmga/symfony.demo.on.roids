@@ -46,6 +46,16 @@ class User implements UserInterface
      */
     private $roles = array();
 
+    /**
+     * @ORM\Column(name="github_id", type="string", length=255, nullable=true)
+     */
+    private $github_id;
+
+    /**
+     * @ORM\Column(name="github_access_token", type="string", length=255, nullable=true)
+     */
+    private $github_access_token;
+
     public function getId()
     {
         return $this->id;
@@ -123,5 +133,41 @@ class User implements UserInterface
     {
         // if you had a plainPassword property, you'd nullify it here
         // $this->plainPassword = null;
+    }
+
+    /**
+     * Returns the GitHub user id
+     */
+    public function getGithubId()
+    {
+        return $this->github_id;
+    }
+
+    /**
+     * Set GitHub user id
+     *
+     * @param $github_id
+     */
+    public function setGithubId($github_id)
+    {
+        $this->github_id = $github_id;
+    }
+
+    /**
+     * Returns the GitHub access token
+     */
+    public function getGithubAccessToken()
+    {
+        return $this->github_access_token;
+    }
+
+    /**
+     * Set GitHub access token
+     *
+     * @param $github_access_token
+     */
+    public function setGithubAccessToken($github_access_token)
+    {
+        $this->github_access_token = $github_access_token;
     }
 }
