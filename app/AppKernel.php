@@ -32,6 +32,8 @@ class AppKernel extends Kernel
             new Bazinga\Bundle\HateoasBundle\BazingaHateoasBundle(),
             new Bazinga\Bundle\RestExtraBundle\BazingaRestExtraBundle(),
             new HWI\Bundle\OAuthBundle\HWIOAuthBundle(),
+            new Snc\RedisBundle\SncRedisBundle(),
+            new RedisBundle\RedisBundle(),
         );
 
         // Some bundles are only used while developing the application or during

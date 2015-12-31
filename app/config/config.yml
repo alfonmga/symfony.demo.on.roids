@@ -168,3 +168,11 @@ hwi_oauth:
             client_secret: %github_client_secret%
             options:
                 csrf: true
+#Redis
+snc_redis:
+    # configure predis as client
+    clients:
+        default:
+            type: predis
+            alias: default
+            dsn: redis://localhost
