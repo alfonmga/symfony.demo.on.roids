@@ -31,7 +31,7 @@ class RedisControllerTest extends WebTestCase
 
         $client->request('GET', '/blog/top-5-popular-posts');
         $this->assertEquals(Response::HTTP_OK, $client->getResponse()->getStatusCode());
-        $this->assertCount(1, $redis->keys('*'));
+        $this->assertCount(11, $redis->keys('*'));
 
         $redis->flushdb();
         $this->assertCount(0, $redis->keys('*'));
