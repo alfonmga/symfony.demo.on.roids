@@ -23,6 +23,12 @@
 {% endblock %}
 
 {% block sidebar %}
+    <div class="section">
+        <a class="btn btn-lg btn-block btn-warning" href="{{ path('blog_top_5_redis') }}">
+            <i class="fa fa-star"></i> Top 5 Popular Posts
+        </a>
+    </div>
+
     {{ parent() }}
 
     {{ show_source_code(_self) }}

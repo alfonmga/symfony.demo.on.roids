@@ -41,7 +41,9 @@
         "friendsofsymfony/http-cache-bundle": "~1.0",
         "willdurand/hateoas-bundle": "~1.1",
         "willdurand/rest-extra-bundle": "~1.0",
-        "hwi/oauth-bundle": "0.4.*"
+        "hwi/oauth-bundle": "0.4.*",
+        "predis/predis": "^1.0",
+        "snc/redis-bundle": "1.1.x-dev"
     },
     "require-dev": {
         "sensio/generator-bundle": "~3.0",

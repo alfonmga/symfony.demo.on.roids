@@ -1,0 +1,4 @@
+services:
+#    redis.example:
+#        class: RedisBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]
