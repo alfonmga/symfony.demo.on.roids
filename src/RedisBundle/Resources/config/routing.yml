@@ -1,0 +1,3 @@
+blog_top_5_redis:
+    path:     /blog/top-5-popular-posts
+    defaults: { _controller: RedisBundle:Redis:ListTopFivePopularPost }
