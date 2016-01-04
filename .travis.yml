@@ -16,5 +16,8 @@ matrix:
 install:
   - composer install
 
+before_script:
+  - sudo redis-server /etc/redis/redis.conf --port 6379
+
 script:
   - phpunit -c app
