@@ -43,7 +43,8 @@
         "willdurand/rest-extra-bundle": "~1.0",
         "hwi/oauth-bundle": "0.4.*",
         "predis/predis": "^1.0",
-        "snc/redis-bundle": "1.1.x-dev"
+        "snc/redis-bundle": "1.1.x-dev",
+        "friendsofsymfony/elastica-bundle": "dev-master"
     },
     "require-dev": {
         "sensio/generator-bundle": "~3.0",

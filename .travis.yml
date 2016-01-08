@@ -13,11 +13,12 @@ matrix:
   allow_failures:
     - php: 7.0
 
+services:
+  - redis-server
+  - elasticsearch
+
 install:
   - composer install
-
-before_script:
-  - sudo redis-server /etc/redis/redis.conf --port 6379
 
 script:
   - phpunit -c app

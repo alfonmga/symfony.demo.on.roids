@@ -25,6 +25,10 @@ oauth:
 redis:
     resource: "@RedisBundle/Resources/config/routing.yml"
     prefix:   /
+
+elastic_search:
+    resource: "@ElasticSearchBundle/Resources/config/routing.yml"
+    prefix:   /
 # These lines define a route using YAML configuration. The controller used by
 # the route (FrameworkBundle:Template:template) is a convenient shortcut when
 # the template can be rendered without executing any logic in your own controller.

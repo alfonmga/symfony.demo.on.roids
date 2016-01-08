@@ -34,6 +34,8 @@ class AppKernel extends Kernel
             new HWI\Bundle\OAuthBundle\HWIOAuthBundle(),
             new Snc\RedisBundle\SncRedisBundle(),
             new RedisBundle\RedisBundle(),
+            new FOS\ElasticaBundle\FOSElasticaBundle(),
+            new ElasticSearchBundle\ElasticSearchBundle(),
         );
 
         // Some bundles are only used while developing the application or during

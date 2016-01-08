@@ -1,0 +1,4 @@
+services:
+#    elastic_search.example:
+#        class: ElasticSearchBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]
