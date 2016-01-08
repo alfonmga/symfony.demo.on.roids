@@ -1,0 +1,9 @@
+elasticsearch_blog_search_post:
+    path:     /blog/search-results
+    methods: ['GET']
+    defaults: { _controller: ElasticSearchBundle:ElasticSearch:search, page: 1 }
+
+elasticsearch_blog_search_post_paginated:
+    path:     /blog/search-results/page/{page}
+    methods: ['GET']
+    defaults: { _controller: ElasticSearchBundle:ElasticSearch:search }

@@ -48,6 +48,14 @@
                             </button>
                         </div>
                         <div class="navbar-collapse collapse">
+                            <div class="search-bar col-sm-3">
+                                <form action="{{ path('elasticsearch_blog_search_post') }}" method="get">
+                                    <div class="input-group-sm" style="display: inline-block">
+                                        <input name="q" type="text" class="form-control" placeholder="Search specific post" autocomplete="off">
+                                    </div>
+                                    <input type="submit" value="search" class="btn btn-sm btn-danger">
+                                </form>
+                            </div>
                             <ul class="nav navbar-nav navbar-right">
 
                                 {% block header_navigation_links %}

@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block body_id 'blog_index' %}
+
+{% block main %}
+    <style>
+        em {
+            color: red;
+            font-style: normal;
+            font-weight: bold;
+        }
+    </style>
+    <h2 style="margin-bottom: 15px" id="results-info">
+        <span>Results for <b>{{ term }}</b> ({{ results|length }})</span>
+    </h2>
+    {% for result in results %}
+        <article class="post">
+            <h2>
+                <a href="{{ path('blog_post', { slug: result.slug }) }}">
+                    {{ result.title|raw }}
+                </a>
+            </h2>
+
+            {{ result.summary|md2html }}
+        </article>
+    {% endfor %}
+{% endblock %}

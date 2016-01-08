@@ -149,7 +149,6 @@ bazinga_rest_extra: ~
 fos_http_cache:
     cache_control:
         rules:
-            # the controls section values are used in a call to Response::setCache();
             -
                 match:
                     path: ^/api/v*
@@ -158,7 +157,6 @@ fos_http_cache:
                     cache_control: { public: true, max_age: 15, s_maxage: 30 }
                     last_modified: "-1 hour"
                     vary: [Accept-Encoding, Accept-Language]
-#HWI OAuthBundle
 hwi_oauth:
     firewall_name: secured_area
     resource_owners:
@@ -168,11 +166,35 @@ hwi_oauth:
             client_secret: %github_client_secret%
             options:
                 csrf: true
-#Redis
 snc_redis:
-    # configure predis as client
     clients:
         default:
             type: predis
             alias: default
             dsn: redis://localhost
+
+fos_elastica:
+    clients:
+        default: { host: localhost, port: 9200 }
+    indexes:
+        app:
+            index_name: app_%kernel.environment%
+            types:
+                post:
+                    mappings:
+                        id: ~
+                        slug:
+                            boost: 3.50
+                        title:
+                            boost: 10.00
+                        summary:
+                            boost: 5.00
+                        content:
+                            boost: 2.50
+                    persistence:
+                        driver: orm
+                        model: AppBundle\Entity\Post
+                        provider: ~
+                        listener:
+                            immediate: ~
+                        finder: ~
