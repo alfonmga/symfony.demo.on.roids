@@ -65,6 +65,21 @@ header {
     }
 }
 
+// Search bar
+.search-bar {
+    padding: 0.8em 0;
+
+    form {
+        position: relative;
+    }
+
+    .search-preview {
+        position: absolute;
+        width: 100%;
+        top: 100%;
+    }
+}
+
 // Body contents
 .body-container {
     -webkit-flex: 1;
