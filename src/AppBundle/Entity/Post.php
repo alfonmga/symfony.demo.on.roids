@@ -71,6 +71,28 @@ class Post
     private $publishedAt;
 
     /**
+     * @ORM\Column(type="datetime", nullable=true)
+     * @Assert\DateTime()
+     */
+    private $updatedAt;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     * @Assert\DateTime()
+     */
+    private $generatedAt;
+
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     */
+    private $pdfName;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $isPdfGenerated;
+
+    /**
      * @ORM\OneToMany(
      *      targetEntity="Comment",
      *      mappedBy="post",
@@ -83,6 +105,8 @@ class Post
     public function __construct()
     {
         $this->publishedAt = new \DateTime();
+        $this->updatedAt = new \DateTime();
+        $this->isPdfGenerated = 0;
         $this->comments = new ArrayCollection();
     }
 
@@ -183,5 +207,47 @@ class Post
     public function setSummary($summary)
     {
         $this->summary = $summary;
+    }
+
+    public function getUpdatedAt()
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt($updatedAt)
+    {
+        $this->updatedAt = $updatedAt;
+    }
+
+
+    public function getGeneratedAt()
+    {
+        return $this->generatedAt;
+    }
+
+    public function setGeneratedAt($generatedAt)
+    {
+        $this->generatedAt = $generatedAt;
+    }
+
+
+    public function getPdfName()
+    {
+        return $this->pdfName;
+    }
+
+    public function setPdfName($pdfName)
+    {
+        $this->pdfName = $pdfName;
+    }
+
+    public function getIsPdfGenerated()
+    {
+        return $this->isPdfGenerated;
+    }
+
+    public function setIsPdfGenerated($isPdfGenerated)
+    {
+        $this->isPdfGenerated = $isPdfGenerated;
     }
 }

@@ -16,9 +16,13 @@ matrix:
 services:
   - redis-server
   - elasticsearch
+  - rabbitmq
 
 install:
   - composer install
+
+before_script:
+  - app/console rabbitmq:consumer generate_pdf
 
 script:
   - phpunit -c app

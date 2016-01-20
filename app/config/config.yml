@@ -198,3 +198,31 @@ fos_elastica:
                         listener:
                             immediate: ~
                         finder: ~
+
+old_sound_rabbit_mq:
+    connections:
+        default:
+            host:     'localhost'
+            port:     5672
+            user:     'guest'
+            password: 'guest'
+            vhost:    '/'
+            lazy:     false
+            connection_timeout: 3
+            read_write_timeout: 3
+
+            # requires php-amqplib v2.4.1+ and PHP5.4+
+            keepalive: false
+
+            # requires php-amqplib v2.4.1+
+            heartbeat: 0
+    producers:
+        generate_pdf:
+            connection:       default
+            exchange_options: {name: 'generate-pdf', type: direct}
+    consumers:
+        generate_pdf:
+            connection:       default
+            exchange_options: {name: 'generate-pdf', type: direct}
+            queue_options:    {name: 'generate-pdf'}
+            callback:         rabbitmq_pdf_generator_consumer
