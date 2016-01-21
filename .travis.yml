@@ -1,5 +1,7 @@
 language: php
 
+sudo: true
+
 cache:
   directories:
     - $HOME/.composer/cache/files
