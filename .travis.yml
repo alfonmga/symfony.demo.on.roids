@@ -19,6 +19,7 @@ services:
   - rabbitmq
 
 install:
+  - sudo apt-get install libxrender1
   - composer install
 
 script:
