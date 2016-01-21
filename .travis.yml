@@ -21,6 +21,8 @@ services:
 install:
   - composer install
 
+before_script:
+  -   - app/console rabbitmq:consumer generate_pdf
+
 script:
-  - app/console rabbitmq:consumer generate_pdf &
   - phpunit -c app
