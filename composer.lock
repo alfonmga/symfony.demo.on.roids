@@ -973,12 +973,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfSymfony/FOSElasticaBundle.git",
-                "reference": "8b712a354ee76da54c49030b7d923b894a73d548"
+                "reference": "81452cb0a244e7a4d23b90d496471848e238fd2f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSElasticaBundle/zipball/8b712a354ee76da54c49030b7d923b894a73d548",
-                "reference": "8b712a354ee76da54c49030b7d923b894a73d548",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSElasticaBundle/zipball/81452cb0a244e7a4d23b90d496471848e238fd2f",
+                "reference": "81452cb0a244e7a4d23b90d496471848e238fd2f",
                 "shasum": ""
             },
             "require": {
@@ -1048,7 +1048,7 @@
                 "propel",
                 "search"
             ],
-            "time": "2016-01-07 21:44:02"
+            "time": "2016-01-19 13:19:17"
         },
         {
             "name": "friendsofsymfony/http-cache",
@@ -3094,24 +3094,24 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/snc/SncRedisBundle.git",
-                "reference": "77f65e3d86a5e21b9bf3710d7e021595df2b6417"
+                "reference": "9068c22c2b5fca9d2107edf2ce424850a9706e8f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/snc/SncRedisBundle/zipball/77f65e3d86a5e21b9bf3710d7e021595df2b6417",
-                "reference": "77f65e3d86a5e21b9bf3710d7e021595df2b6417",
+                "url": "https://api.github.com/repos/snc/SncRedisBundle/zipball/9068c22c2b5fca9d2107edf2ce424850a9706e8f",
+                "reference": "9068c22c2b5fca9d2107edf2ce424850a9706e8f",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3",
-                "symfony/framework-bundle": ">=2.1,<3.0",
-                "symfony/yaml": ">=2.1,<3.0"
+                "symfony/framework-bundle": "^2.1",
+                "symfony/yaml": "^2.1"
             },
             "require-dev": {
-                "doctrine/cache": "1.*",
-                "phpunit/phpunit": "4.*",
-                "predis/predis": "~1.0",
-                "symfony/console": ">=2.1,<3.0"
+                "doctrine/cache": "^1.0",
+                "phpunit/phpunit": "^4.0",
+                "predis/predis": "^1.0",
+                "symfony/console": "^2.1"
             },
             "suggest": {
                 "monolog/monolog": "If you want to use the monolog redis handler.",
@@ -3145,7 +3145,7 @@
                 "redis",
                 "symfony"
             ],
-            "time": "2015-06-30 09:08:50"
+            "time": "2016-01-18 11:45:54"
         },
         {
             "name": "swiftmailer/swiftmailer",
