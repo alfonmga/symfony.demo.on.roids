@@ -22,7 +22,7 @@ install:
   - composer install
 
 before_script:
-  -   - app/console rabbitmq:consumer generate_pdf
+  - app/console rabbitmq:consumer generate_pdf
 
 script:
   - phpunit -c app
