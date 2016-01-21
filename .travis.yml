@@ -19,6 +19,7 @@ services:
   - rabbitmq
 
 install:
+  - sudo apt-get install wkhtmltopdf
   - wkhtmltopdf
   - which wkhtmltopdf
   - composer install
