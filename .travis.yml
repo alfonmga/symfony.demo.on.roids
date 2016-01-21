@@ -19,7 +19,8 @@ services:
   - rabbitmq
 
 install:
-  - sudo apt-get install libxrender1
+  - wkhtmltopdf
+  - which wkhtmltopdf
   - composer install
 
 script:
