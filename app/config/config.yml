@@ -226,3 +226,13 @@ old_sound_rabbit_mq:
             exchange_options: {name: 'generate-pdf', type: direct}
             queue_options:    {name: 'generate-pdf'}
             callback:         rabbitmq_pdf_generator_consumer
+
+knp_snappy:
+        pdf:
+            enabled:    true
+            binary:     /usr/local/bin/wkhtmltopdf #"\"C:\\Program Files\\wkhtmltopdf\\bin\\wkhtmltopdf.exe\"" for Windows users
+            options:    []
+        image:
+            enabled:    true
+            binary:     /usr/local/bin/wkhtmltoimage #"\"C:\\Program Files\\wkhtmltopdf\\bin\\wkhtmltoimage.exe\"" for Windows users
+            options:    []
