@@ -18,6 +18,12 @@ services:
   - elasticsearch
   - rabbitmq
 
+before_install:
+  - echo '## Downloading wkhtmltopdf'
+  - wget http://download.gna.org/wkhtmltopdf/0.12/0.12.3/wkhtmltox-0.12.3_linux-generic-amd64.tar.xz
+  - tar xvjf wkhtmltox-0.12.3_linux-generic-amd64.tar.xz -C wkhtmltopdf
+  - mv wkhtmltox /usr/local/bin/wkhtmltopdf
+
 install:
   - composer install
 
