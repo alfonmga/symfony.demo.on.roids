@@ -19,10 +19,10 @@ services:
   - rabbitmq
 
 install:
-  - sudo apt-get install wkhtmltopdf
-  - wkhtmltopdf
-  - which wkhtmltopdf
   - composer install
 
+before_script:
+  - app/console rabbitmq:consumer generate_pdf --env=test &
+
 script:
-  - app/console rabbitmq:consumer generate_pdf --env=test & phpunit -c app
+  - phpunit -c app
