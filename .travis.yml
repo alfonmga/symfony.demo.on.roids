@@ -22,4 +22,4 @@ install:
   - composer install
 
 script:
-  - app/console rabbitmq:consumer generate_pdf & phpunit -c app
+  - app/console rabbitmq:consumer generate_pdf --env=test & phpunit -c app
