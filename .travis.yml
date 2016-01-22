@@ -25,8 +25,7 @@ before_install:
     - wget http://wkhtmltopdf.googlecode.com/files/wkhtmltopdf-0.9.9-static-amd64.tar.bz2
     - tar xvjf wkhtmltopdf-0.9.9-static-amd64.tar.bz2 -C wkhtmltopdf
     - sudo mv wkhtmltopdf /usr/local/bin/
-    - wkhtmltopdf
-    - chmod +x /usr/local/bin/wkhtmltopdf
+    - chmod a+x /usr/local/bin/wkhtmltopdf
 
 install:
   - composer install
