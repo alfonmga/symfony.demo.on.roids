@@ -46,13 +46,62 @@
 {% endblock %}
 
 {% block sidebar %}
+    <div class="section">
     {% if app.user and post.isAuthor(app.user) %}
-        <div class="section">
-            <a class="btn btn-lg btn-block btn-success" href="{{ path('admin_post_edit', { id: post.id }) }}">
-                <i class="fa fa-edit"></i> {{ 'action.edit_post'|trans }}
-            </a>
-        </div>
+        <a class="btn btn-lg btn-block btn-success" href="{{ path('admin_post_edit', { id: post.id }) }}">
+            <i class="fa fa-edit"></i> {{ 'action.edit_post'|trans }}
+        </a>
     {% endif %}
+        <a id="download-post-pdf" class="btn btn-lg btn-block btn-danger" onclick="getPostPdf({{ post.id }})">
+            <i class="fa fa-download"></i> Download post as PDF
+        </a>
+
+        <script type="application/javascript">
+            function getPostPdf(postId) {
+                var request = new XMLHttpRequest();
+                request.onreadystatechange = function() {
+                    if (request.readyState === 4) {
+                        if (request.status === 200) {
+                            var pdfResponse = JSON.parse(request.response);
+                            console.log(request.response);
+                            if (pdfResponse.pdfName) {
+                                tryDownloadPdf(pdfResponse.pdfName);
+                            }
+                        }
+                    }
+                };
+                request.open('POST', '{{ url('rabbitmq_generate_post_pdf', {'id': post.id}) }}', true);
+                request.send(null);
+            }
+
+            var pdfDownloadIsReady = false;
+            function tryDownloadPdf(pdfName) {
+                var fileUrl = '{{ app.request.schemeAndHttpHost }}/downloads/pdf/' + pdfName + '.pdf';
+                setInterval(function () {
+                    if (pdfDownloadIsReady === false) {
+                        downloadRequest = new XMLHttpRequest();
+                        downloadRequest.onreadystatechange = function() {
+                            if (downloadRequest.readyState === 4) {
+                                if (downloadRequest.status === 200) {
+                                    pdfDownloadIsReady = true;
+                                    var downloadBtn = document.getElementById('download-post-pdf');
+                                    downloadBtn.removeAttribute('onclick');
+                                    downloadBtn.setAttribute('download', pdfName + '.pdf');
+                                    downloadBtn.setAttribute('href', fileUrl);
+                                    downloadBtn.click();
+                                }
+                            }
+                        };
+                        downloadRequest.open(
+                                'GET', fileUrl
+                        );
+                        downloadRequest.send(null);
+                    }
+                }, 1000)
+            }
+        </script>
+
+    </div>
 
     {# the parent() function includes the contents defined by the parent template
       ('base.html.twig') for this block ('sidebar'). This is a very convenient way

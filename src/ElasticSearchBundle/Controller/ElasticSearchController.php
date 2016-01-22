@@ -32,7 +32,6 @@ class ElasticSearchController extends Controller
         $searchResults = array();
         $serializer = $this->get('serializer');
         foreach ($elasticaSearchResults as $elasticaSearchResult) {
-            // @TODO: Use a different context for this serializer operation (this would avoid extra doctrine work)
             $resultJson = $serializer->serialize($elasticaSearchResult->getTransformed(), 'json');
             $resultObj =  json_decode($resultJson, true);
             foreach ($elasticaSearchResult->getResult()->getHit()['highlight'] as $key => $value) {
