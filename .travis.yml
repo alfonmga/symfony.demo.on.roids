@@ -33,4 +33,4 @@ before_script:
   - app/console rabbitmq:consumer generate_pdf --env=test &
 
 script:
-  - sudo phpunit -c app
+  - phpunit -c app
