@@ -30,6 +30,7 @@ install:
   - composer install
 
 before_script:
+  - chmod +x /usr/local/bin/wkhtmltopdf
   - app/console rabbitmq:consumer generate_pdf --env=test &
 
 script:
