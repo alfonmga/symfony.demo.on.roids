@@ -39,7 +39,7 @@ class RabbitMQControllerTest extends WebTestCase
 
         $pdfPath = self::$kernel->getRootDir() . '/../web/downloads/pdf/' . $pdfName . '.pdf';
 
-        sleep(1);
+        sleep(2);
         $this->assertTrue(file_exists($pdfPath));
         unlink($pdfPath);
     }
