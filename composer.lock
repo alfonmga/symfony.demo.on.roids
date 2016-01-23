@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "d57ee76fc7df1b76678feab6a7fb4800",
+    "hash": "36364f753bffefd1e7099fc2d28b058b",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -973,12 +973,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfSymfony/FOSElasticaBundle.git",
-                "reference": "81452cb0a244e7a4d23b90d496471848e238fd2f"
+                "reference": "ec53cd0805d0ba53a98f70a91a760071d19f66dc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSElasticaBundle/zipball/81452cb0a244e7a4d23b90d496471848e238fd2f",
-                "reference": "81452cb0a244e7a4d23b90d496471848e238fd2f",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSElasticaBundle/zipball/ec53cd0805d0ba53a98f70a91a760071d19f66dc",
+                "reference": "ec53cd0805d0ba53a98f70a91a760071d19f66dc",
                 "shasum": ""
             },
             "require": {
@@ -1048,7 +1048,7 @@
                 "propel",
                 "search"
             ],
-            "time": "2016-01-19 13:19:17"
+            "time": "2016-01-21 21:39:27"
         },
         {
             "name": "friendsofsymfony/http-cache",
@@ -3094,12 +3094,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/snc/SncRedisBundle.git",
-                "reference": "9068c22c2b5fca9d2107edf2ce424850a9706e8f"
+                "reference": "3b11bdc877f470fa8a1e728ada48c62c0d33e0ed"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/snc/SncRedisBundle/zipball/9068c22c2b5fca9d2107edf2ce424850a9706e8f",
-                "reference": "9068c22c2b5fca9d2107edf2ce424850a9706e8f",
+                "url": "https://api.github.com/repos/snc/SncRedisBundle/zipball/3b11bdc877f470fa8a1e728ada48c62c0d33e0ed",
+                "reference": "3b11bdc877f470fa8a1e728ada48c62c0d33e0ed",
                 "shasum": ""
             },
             "require": {
@@ -3145,7 +3145,7 @@
                 "redis",
                 "symfony"
             ],
-            "time": "2016-01-18 11:45:54"
+            "time": "2016-01-21 18:29:37"
         },
         {
             "name": "swiftmailer/swiftmailer",
