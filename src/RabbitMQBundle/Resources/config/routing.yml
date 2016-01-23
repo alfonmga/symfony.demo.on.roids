@@ -1,0 +1,6 @@
+rabbitmq_generate_post_pdf:
+    path:     /post/generate_pdf/{id}
+    defaults: { _controller: RabbitMQBundle:RabbitMQ:generatePdf }
+    methods: ['POST']
+    requirements:
+        id: \d+

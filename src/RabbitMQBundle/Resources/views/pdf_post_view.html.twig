@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    </head>
+    <body>
+        <div style="text-align: right;">
+            PDF Generated on {{ "now"|date("m/d/Y h:i:s") }}
+        </div>
+        <div>
+            <h1>{{ post.title }}</h1>
+            <div>
+                {{ post.content|md2html }}
+            </div>
+            <div>
+                <h2>Comments ({{ post.comments|length }}):</h2>
+                {% for comment in post.comments %}
+                    <div class="row post-comment">
+                        <h4 class="col-sm-3">
+                            <strong>{{ comment.authorEmail }}</strong> {{ 'post.commented_on'|trans }}
+                            <strong>{{ comment.publishedAt|localizeddate('medium', 'short') }}</strong>
+                        </h4>
+                        <div class="col-sm-9">
+                            {{ comment.content|md2html }}
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="post-comment">
+                        <p>{{ 'post.no_comments'|trans }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </body>
+</html>

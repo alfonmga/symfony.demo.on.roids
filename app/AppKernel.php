@@ -36,6 +36,9 @@ class AppKernel extends Kernel
             new RedisBundle\RedisBundle(),
             new FOS\ElasticaBundle\FOSElasticaBundle(),
             new ElasticSearchBundle\ElasticSearchBundle(),
+            new RabbitMQBundle\RabbitMQBundle(),
+            new OldSound\RabbitMqBundle\OldSoundRabbitMqBundle(),
+            new Knp\Bundle\SnappyBundle\KnpSnappyBundle(),
         );
 
         // Some bundles are only used while developing the application or during

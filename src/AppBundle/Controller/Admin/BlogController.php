@@ -153,6 +153,7 @@ class BlogController extends Controller
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $post->setSlug($this->get('slugger')->slugify($post->getTitle()));
+            $post->setUpdatedAt(new \DateTime('now'));
             $entityManager->flush();
 
             $this->addFlash('success', 'post.updated_successfully');

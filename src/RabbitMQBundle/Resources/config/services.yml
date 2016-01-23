@@ -1,0 +1,7 @@
+services:
+    rabbitmq_pdf_generator:
+        class: RabbitMQBundle\Services\PDFGenerator
+        arguments: ['@serializer', '@service_container']
+    rabbitmq_pdf_generator_consumer:
+        class: RabbitMQBundle\Services\RabbitMQ\PDFGeneratorConsumer
+        arguments: ['@service_container', '@templating', '@serializer']

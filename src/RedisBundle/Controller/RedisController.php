@@ -22,8 +22,6 @@ class RedisController extends Controller
         $predis->setRedis(new Client());
         $cache_lifetime = 3600;
 
-        // TODO: Refactor all this.
-
         $posts = $em->getRepository('AppBundle:Post')
             ->createQueryBuilder('p')
             ->select('p')
