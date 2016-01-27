@@ -56,7 +56,7 @@ class RedisController extends Controller
 
         $numPosts = count($postsWithNumComments);
         if ($numPosts > 5) {
-            for ($i = 4; $i < $numPosts; $i++) {
+            for ($i = 5; $i < $numPosts; $i++) {
                 unset($postsWithNumComments[$i]);
             }
         }
