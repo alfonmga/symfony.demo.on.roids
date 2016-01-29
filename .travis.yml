@@ -30,6 +30,7 @@ install:
   - composer install
 
 before_script:
+  - rabbitmqctl add_user admin symfony.demo.on.roids
   - app/console rabbitmq:consumer generate_pdf --env=test &
 
 script:
