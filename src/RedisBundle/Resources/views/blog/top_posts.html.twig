@@ -4,9 +4,11 @@
 
 {% block main %}
     <h1><i class="fa fa-star"></i> Top 5 Popular Posts</h1>
+    {% set num_pos = 1 %}
     {% for post in posts %}
         <article class="post">
             <h2>
+                {{ num_pos }}.
                 <a href="{{ path('blog_post', { slug: post.post.slug }) }}">
                     {{ post.post.title }}
                 </a>
@@ -14,6 +16,7 @@
 
             {{ post.post.summary|md2html }}
         </article>
+        {% set num_pos = num_pos + 1 %}
     {% else %}
         <div class="well">{{ 'post.no_posts_found'|trans }}</div>
     {% endfor %}
