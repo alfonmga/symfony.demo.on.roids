@@ -25,6 +25,7 @@
 # Assets and user uploads
 /web/bundles/
 /web/uploads/
+/web/downloads/
 
 # PHPUnit
 /app/phpunit.xml
@@ -38,3 +39,6 @@
 
 # Vagrant
 /vagrant/.vagrant/
+
+# IDE
+/.idea/
