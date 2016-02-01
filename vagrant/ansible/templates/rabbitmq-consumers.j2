@@ -1,0 +1,5 @@
+#!/bin/bash
+cd /var/www/app/
+sudo app/console rabbitmq:consumer generate_pdf --env=dev &
+sudo app/console rabbitmq:consumer generate_pdf --env=test &
+sudo app/console rabbitmq:consumer generate_pdf --env=prod &

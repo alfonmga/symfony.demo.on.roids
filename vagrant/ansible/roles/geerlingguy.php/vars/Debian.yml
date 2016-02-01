@@ -1,0 +1,23 @@
+---
+__php_packages:
+  - php5
+  - php5-mcrypt
+  - php5-cli
+  - php5-common
+  - php5-curl
+  - php5-dev
+  - php5-fpm
+  - php5-gd
+  - php-pear
+  - php-apc
+  - libpcre3-dev
+__php_webserver_daemon: "apache2"
+
+# Vendor-specific configuration paths on Debian/Ubuntu make my brain asplode.
+__php_conf_path: "{{ '/etc/php5' if php_webserver_daemon and php_webserver_daemon != 'apache2' else '/etc/php5/apache2' }}"
+__php_extension_conf_path: "{{ __php_conf_path }}/conf.d"
+
+__php_apc_conf_filename: 20-apcu.ini
+__php_opcache_conf_filename: 05-opcache.ini
+__php_fpm_daemon: php5-fpm
+__php_fpm_pool_conf_path: "/etc/php5/fpm/pool.d/www.conf"

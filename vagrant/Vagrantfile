@@ -1,0 +1,32 @@
+Vagrant.configure(2) do |config|
+  config.vm.define "app.symfony.demo.on.roids" do |app|
+    
+    app.vm.provider "virtualbox" do |vb, override|
+      override.vm.boot_timeout = 90
+      override.vm.box = "ubuntu/trusty64"
+      override.vm.network "private_network", ip: "192.168.50.88"
+      vb.name = 'app.symfony.demo.on.roids'
+      vb.memory = 1000
+      vb.cpus = 2
+    end
+    
+    app.vm.provider :aws do |aws, override|
+      override.vm.box = "dummy"
+      aws.access_key_id = "YOUR KEY"
+      aws.secret_access_key = "YOUR SECRET KEY"
+      aws.session_token = "SESSION TOKEN"
+      aws.keypair_name = "KEYPAIR NAME"
+      aws.ami = "ami-7747d01e"
+      override.ssh.username = "ubuntu"
+      override.ssh.private_key_path = "PATH TO YOUR PRIVATE KEY"
+    end
+
+    app.vm.provision "ansible" do |ansible|
+      ansible.playbook = "ansible/setup.yml"
+      ansible.verbose = "v"
+      ansible.inventory_path = "ansible/hosts_inventory"
+      ansible.limit = "all"
+      ansible.sudo = true;
+    end
+  end
+end

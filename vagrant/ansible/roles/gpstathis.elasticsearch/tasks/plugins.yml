@@ -1,0 +1,57 @@
+---
+# Install Elasticsearch Plugins
+#
+# You will need to define an array called 'elasticsearch_plugins' in your playbook or inventory, such that:
+#
+# elasticsearch_plugins:
+#  - { name: '<plugin name>', url: '<[optional] plugin url>' }
+#  - ...
+# where if you were to install the plugin via bin/plugin, you would type:
+#
+# bin/plugin -install <plugin name>
+#
+# or
+#
+# bin/plugin -install <plugin name> -url <plugin url>
+
+# Example for https://github.com/elasticsearch/elasticsearch-mapper-attachments (bin/plugin -install elasticsearch/elasticsearch-mapper-attachments/1.9.0):
+# elasticsearch_plugins:
+#  - { name: 'elasticsearch/elasticsearch-mapper-attachments/1.9.0' }
+#
+# Example for https://github.com/richardwilly98/elasticsearch-river-mongodb (bin/plugin -i com.github.richardwilly98.elasticsearch/elasticsearch-river-mongodb/1.7.1):
+# elasticsearch_plugins:
+#  - { name: 'com.github.richardwilly98.elasticsearch/elasticsearch-river-mongodb/1.7.1' }
+#
+# Example for https://github.com/imotov/elasticsearch-facet-script (bin/plugin -install facet-script -url http://dl.bintray.com/content/imotov/elasticsearch-plugins/elasticsearch-facet-script-1.1.2.zip):
+# elasticsearch_plugins:
+#  - { name: 'facet-script', url: 'http://dl.bintray.com/content/imotov/elasticsearch-plugins/elasticsearch-facet-script-1.1.2.zip' }
+
+# Loop though elasticsearch_plugins and install them
+
+- name: plugins | Removing Old Plugins
+  shell: bin/plugin --remove {{ item.name }}
+    chdir={{ elasticsearch_home_dir }}
+  when: item.name is defined and item.reinstall is defined and item.reinstall == True
+  with_items: elasticsearch_plugins
+  ignore_errors: yes
+- name: plugins | Installing Plugins
+  shell: bin/plugin -install {{ item.name }} {{ '-url ' + item.url if item.url is defined else '' }}
+    chdir={{ elasticsearch_home_dir }}
+  when: item.download_only is not defined
+  with_items: elasticsearch_plugins
+  register: plugins_installed
+  changed_when: "'Installed' in plugins_installed.stdout"
+  failed_when: "plugins_installed.rc != 0 and plugins_installed.stdout.find('already exists. To update the plugin') == -1"
+- name: plugins | Ensure Paths for Download only Plugins
+  file:
+    path="{{ elasticsearch_plugin_dir }}/{{ item.name }}"
+    state=directory
+  when: item.download_only is defined and item.name is defined
+  with_items: elasticsearch_plugins
+- name: plugins | Download only Plugins
+  get_url:
+    url={{ item.url }}
+    dest={{ elasticsearch_plugin_dir }}/{{ item.name }}
+  when: item.download_only is defined and item.name is defined
+  with_items: elasticsearch_plugins
+  ignore_errors: yes

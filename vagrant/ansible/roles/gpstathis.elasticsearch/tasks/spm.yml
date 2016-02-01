@@ -1,0 +1,34 @@
+---
+# SPM Tasks (see http://sematext.com/spm/)
+
+- name: spm | Install Collectd
+  apt:
+    pkg=collectd
+    state=present
+
+  # TODO: Make idempotent
+- name: spm |  Downloading and running package
+  shell: wget --no-check-certificate -O installer.sh "https://apps.sematext.com/spm-reports/installerDownload.do?client_token={{ spm_client_token }}" && bash installer.sh
+
+  # TODO: Make idempotent
+- name:  spm | Preparing monitor configurations
+  shell: bash /opt/spm/bin/spm-client-setup-conf.sh {{ spm_client_token }} es standalone
+
+- name:  spm | Configuring JXM in Elasticsearch
+  lineinfile:
+    dest=/etc/default/elasticsearch
+    regexp='^(ES_JAVA_OPTS="\$ES_JAVA_OPTS -Dcom.sun.management.jmxremote.*")$'
+    insertafter='^(#ES_JAVA_OPTS=.*)$'
+    line='ES_JAVA_OPTS="\$ES_JAVA_OPTS -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=3000 -Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote.authenticate=false"'
+  notify: Restart Elasticsearch
+
+- name: spm | Configuring JXM in SPM
+  lineinfile:
+    dest=/opt/spm/spm-monitor/conf/spm-monitor-config-{{ spm_client_token }}-default.properties
+    regexp='^(SPM_MONITOR_JMX_PARAMS="")$'
+    line='SPM_MONITOR_JMX_PARAMS="-Dspm.remote.jmx.url=localhost:3000"'
+
+- name: spm | Restarting SPM
+  service:
+    name=spm-monitor
+    state=restarted

@@ -1,0 +1,86 @@
+---
+- hosts: app
+  tasks:
+    - name: "Add PHP 5.6 version repository"
+      apt_repository: repo='ppa:ondrej/php5-5.6'
+
+    - name: "Upgrade all packages to latest version"
+      apt: upgrade=dist update_cache=yes
+
+    - name: "Install new PHP version"  
+      apt: name=php5 state=present
+
+    - name: "Install needed packages"
+      apt: name={{ item }} state=present
+      with_items:
+        - git
+        - sqlite
+        - php5-sqlite
+        - php5-curl
+        - phpunit
+    
+    - name: "Download wkhtmltox"
+      command: chdir=/ wget http://download.gna.org/wkhtmltopdf/0.12/0.12.3/wkhtmltox-0.12.3_linux-generic-amd64.tar.xz
+
+    - name: "Uncompress wkhtmltox"
+      command: chdir=/ tar xf wkhtmltox-0.12.3_linux-generic-amd64.tar.xz
+    
+    - name: "Remove wkhtmltox.tar.xz"
+      command: chdir=/ rm wkhtmltox-0.12.3_linux-generic-amd64.tar.xz
+
+    - name: "Move wkhtmltox"
+      command: chdir=/ mv wkhtmltox/bin/wkhtmltopdf /usr/local/bin/
+
+    - name: "Permissions wkhtmltox"
+      command: chmod +x /usr/local/bin/wkhtmltopdf
+
+    - name: "Clone GitHub symfony.demo.on.roids repository"
+      git: repo=https://github.com/alfonsomga/symfony.demo.on.roids.git force=yes
+           dest=/var/www/app
+
+    - name: "Run composer and install dependencies"
+      command: chdir=/var/www/app composer install --dev --no-interaction --optimize-autoloader --prefer-dist --no-ansi --no-progress
+      notify:
+        - restart nginx
+
+    - name: "htmlpurifier vendor needs writable permissions"
+      file: path=/var/www/app/vendor/ezyang/htmlpurifier/library/HTMLPurifier/DefinitionCache/Serializer mode=0777
+
+    - name:  "Clear symfony caches"
+      shell: >
+        cd /var/www/app
+        app/console cache:clear --env=test
+        app/console cache:clear --env=dev
+        app/console cache:clear --env=prod
+
+    - name: "Populate elasticsearch"
+      command: chdir=/var/www/app app/console fos:elastica:populate --env={{ item }}
+      with_items:
+        - test
+        - dev
+        - prod
+
+    - name: "Restart RabbitMQ service"
+      service: name=rabbitmq-server state=restarted
+
+    - name: "Create bash file for RabbitMQ consumers"
+      template: src=rabbitmq-consumers.j2 dest=/var/www/app/rabbitmq-consumers.sh mode=0777
+
+    - name: "Run RabbitMQ consumers"
+      command: chdir=/var/www/app ./rabbitmq-consumers.sh
+
+    - name: "Add write permissions to SQLite databases folder"
+      command: chdir=/var/www/app chown -R www-data:www-data app/data/
+
+    - name: "Add write permissions Symfony cache folder"
+      command: chdir=/var/www/app chown -R www-data:www-data app/cache/
+
+    - name: "Add write permissions Symfony logs folder"
+      command: chdir=/var/www/app chown -R www-data:www-data app/logs/    
+  roles:
+    - geerlingguy.nginx
+    - geerlingguy.php
+    - geerlingguy.composer
+    - geerlingguy.redis
+    - gpstathis.elasticsearch
+    - Stouts.rabbitmq

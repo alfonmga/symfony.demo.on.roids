@@ -37,4 +37,4 @@
 /composer.phar
 
 # Vagrant
-/.vagrant/
+/vagrant/.vagrant/
