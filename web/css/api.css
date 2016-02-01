@@ -1,0 +1,80 @@
+h1.title {
+    font-size: 45px;
+    padding-bottom: 30px;
+}
+.sf-reset a,
+.sf-reset li a {
+    color: #08C;
+    text-decoration: none;
+}
+.sf-reset a:hover,
+.sf-reset li a:hover {
+    color: #08C;
+    text-decoration: underline;
+}
+.control-label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+.form-control {
+    display: block;
+    width: 100%;
+    height: 35px;
+    padding: 10px 15px;
+    font-size: 15px;
+    line-height: 1.42857;
+    color: #2c3e50;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #dce4ec;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+
+.form-group textarea {
+    height: 170px;
+}
+
+.form-group.has-error .control-label {
+    color: #e74c3c;
+}
+
+.form-group.has-error .form-control {
+    border-color: #e74c3c;
+}
+
+.form-group.has-error span.help-block {
+    color: #FF0000;
+}
+
+.custom-form > input {
+    margin-top: 15px;
+}
+
+.main-content .content-label {
+    font-weight: 700;
+    font-size: 17px;
+    color: #2F4F4F;
+}
+
+.main-content .content-title {
+    color: rgb(44, 62, 80);
+    font: normal normal normal normal 39px / 42.9px Lato, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.comment-content {
+    margin-top: 555px;
+}
+
+hr {
+    border: 0;
+    height: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
