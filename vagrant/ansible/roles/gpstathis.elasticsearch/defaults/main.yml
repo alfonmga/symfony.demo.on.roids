@@ -29,3 +29,7 @@ elasticsearch_service_state: started
 # Non-Elasticsearch Defaults
 apt_cache_valid_time: 300 # seconds between "apt-get update" calls.
 elasticsearch_install_java: "true"
+
+# Elasticsearch plugins to install
+elasticsearch_plugins:
+ - { name: 'mobz/elasticsearch-head/1.x' }
