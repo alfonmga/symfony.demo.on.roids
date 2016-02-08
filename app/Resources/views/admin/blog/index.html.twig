@@ -58,8 +58,8 @@
         {% else %}
             <form action="{{ path('oauth_dissconnect_service', {'service': 'github', 'usernameId': app.user.githubid, 'accessToken': app.user.githubaccesstoken}) }}" method="post">
                 <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
-                <button type="submit" class="btn btn-lg btn-block btn-danger">
-                    <i class="fa fa-github-square"></i> Delete GitHub account
+                <button type="submit" class="btn btn-lg btn-block btn-danger" style="font-size: 16px">
+                    <i class="fa fa-github-square"></i> Delete linked GitHub account
                 </button>
             </form>
         {% endif %}
