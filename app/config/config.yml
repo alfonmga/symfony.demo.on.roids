@@ -219,12 +219,12 @@ old_sound_rabbit_mq:
     producers:
         generate_pdf:
             connection:       default
-            exchange_options: {name: 'generate-pdf', type: direct}
+            exchange_options: {name: 'generate-pdf_prod', type: direct}
     consumers:
         generate_pdf:
             connection:       default
-            exchange_options: {name: 'generate-pdf', type: direct}
-            queue_options:    {name: 'generate-pdf'}
+            exchange_options: {name: 'generate-pdf_prod', type: direct}
+            queue_options:    {name: 'generate-pdf_prod'}
             callback:         rabbitmq_pdf_generator_consumer
 
 knp_snappy:
