@@ -11,6 +11,16 @@ The "Symfony Demo Application on Roids" is an application based on the original 
   <a href="#"><img src="https://i.imgur.com/qovozc2.png" heigh="15%" width="15%"></a>
 </div>
 
+## Table of Contents
+- [Setting up & running the demo with Vagrant + Ansible](#setting-up--running-the-demo-with-vagrant--ansible)
+  - [Prerequisites](#prerequisites)
+  - [Instructions](#instructions)
+- [RESTful API + HATEOAS](#restful-api--hateoas)
+- [Elasticsearch](#elasticsearch)
+- [OAuth](#oauth)
+- [RabbitMQ](#rabbitmq)
+- [Redis](#redis)
+
 <img src="http://svgporn.com/logos/ansible.svg" heigh="5%" width="5%" align="right">
 <img src="http://svgporn.com/logos/vagrant.svg" heigh="5%" width="5%" align="right">
 ## Setting up & running the demo with [**Vagrant**](https://www.vagrantup.com/) + [**Ansible**](http://www.ansible.com/)
