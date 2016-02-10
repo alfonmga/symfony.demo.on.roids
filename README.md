@@ -42,7 +42,7 @@ Congratulations! You're now ready to use The Symfony Demo On Roids.
 ## RESTful API + HATEOAS
 <img src="http://fotos.subefotos.com/902ef9199023b7d7ff1e37aadc32ee09o.png">
 
-[@TODO: Add desc...]
+A RESTful API + HATEOAS has been implemented for expose the resources. Different formats are available for manage the data: HTML, JSON and XML.
 
 **Related urls:**
 - <a href="http://192.168.50.88/api/v1/" target="_blank">**API Index page**</a>
