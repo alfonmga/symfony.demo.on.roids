@@ -100,7 +100,7 @@ RabbitMQ has been used for generate a PDF file based on the article content from
 ## Redis
 <img src="http://fotos.subefotos.com/8e6e6a3507f8145c3bf72d3c9af53951o.png">
 
-Redis has been used for show the top 5 populars posts and set a cache lifetime of 3600 seconds.
+Redis has been used for show the top 5 popular posts and set a cache lifetime of 3600 seconds.
 
 **Related urls:**
 - <a href="http://192.168.50.88/blog/top-5-popular-posts" target="_blank">**Top 5 popular posts**</a>
