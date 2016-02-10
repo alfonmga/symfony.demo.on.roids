@@ -31,7 +31,7 @@ The "Symfony Demo Application on Roids" is an application based on the original 
 
 ### Instructions
 1. ``git clone https://github.com/alfonsomga/symfony.demo.on.roids.git``
-2. ``cd symfony.demo.on.roids/``
+2. ``cd symfony.demo.on.roids/vagrant/``
 3. ``vagrant up``
 4. Wait until Ansible installs and configure everything
 5. Finally navigate to <a href="http://192.168.50.88/" target="_blank">**http://192.168.50.88**</a> to browse the app
