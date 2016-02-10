@@ -3,13 +3,13 @@
 
 The "Symfony Demo Application on Roids" is an application based on the original [**Symfony Demo Application**](https://github.com/symfony/symfony-demo) that includes extra features using technologies like [**Elasticsearch**](https://www.elastic.co/products/elasticsearch), [**OAuth**](http://oauth.net/), [**RabbitMQ**](https://www.rabbitmq.com/), [**Redis**](http://redis.io/) and a [**RESTful API**](https://en.wikipedia.org/wiki/Representational_state_transfer) + [**HATEOAS**](https://en.wikipedia.org/wiki/HATEOAS).
 
-<div style="text-align: center">
+<p align="center">
   <a href="#"><img src="http://svgporn.com/logos/elasticsearch.svg" heigh="15%" width="15%"></a>
   <a href="#"><img src="http://svgporn.com/logos/oauth.svg" heigh="15%" width="15%"></a>
   <a href="#"><img src="http://svgporn.com/logos/rabbitmq.svg" heigh="15%" width="15%"></a>
   <a href="#"><img src="http://svgporn.com/logos/redis.svg" heigh="15%" width="15%"></a>
   <a href="#"><img src="https://i.imgur.com/qovozc2.png" heigh="15%" width="15%"></a>
-</div>
+</p>
 
 ## Table of Contents
 - [Setting up & running the demo with Vagrant + Ansible](#setting-up--running-the-demo-with-vagrant--ansible)
