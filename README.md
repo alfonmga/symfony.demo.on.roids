@@ -75,6 +75,8 @@ Elasticsearch has been used for add a simple search form and show relevant resul
 
 OAuth has been used for link/unlink an account from an OAuth provider (GitHub in this case) to an existent backend account and allows to log in directly to the backend from a GitHub account.
 
+To use this feature you must [register a new OAuth Application](https://github.com/settings/applications/new) and edit the [parameters.yml.dist](https://github.com/alfonsomga/symfony.demo.on.roids/blob/master/app/config/parameters.yml.dist) file with your app  ``client id`` and ``client secret`` token.
+
 **Related urls:**
 - <a href="http://192.168.50.88/en/login" target="_blank">**Login page (click on ``Sign in with GitHub``)**</a>
 - <a href="http://192.168.50.88/en/admin/post/" target="_blank">**Manage your OAuth account (``Link`` or ``Unlink`` ``Github Account``)**</a>
