@@ -75,6 +75,7 @@ The "Symfony Demo Application on Roids" is an application based on the original 
 
 **Related urls:**
 - <a href="http://192.168.50.88/en/login" target="_blank">**Login page (click on ``Sign in with GitHub``)**</a>
+- <a href="http://192.168.50.88/en/admin/post/" target="_blank">**Manage your OAuth account (``Link`` or ``Unlink`` ``Github Account``)**</a>
 
 **Bundles used:**
 - [**HWIOAuthBundle**](https://github.com/hwi/HWIOAuthBundle)
