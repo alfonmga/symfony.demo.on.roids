@@ -60,7 +60,7 @@ Congratulations! You're now ready to use The Symfony Demo On Roids.
 ## Elasticsearch
 <img src="http://fotos.subefotos.com/073c48b4ad7243e1ca4385dc34f5a2e9o.png">
 
-[@TODO: Add desc...]
+Elasticsearch has been used for add a simple search form and show relevant results based on the user search query.
 
 **Related urls:**
 - <a href="http://192.168.50.88:9200/_plugin/head/" target="_blank">**Elasticsearch Admin panel**</a>
@@ -73,7 +73,7 @@ Congratulations! You're now ready to use The Symfony Demo On Roids.
 ## OAuth
 <img src="http://fotos.subefotos.com/8aa0e2f21490393c399ed412b0003ba3o.png">
 
-[@TODO: Add desc...]
+OAuth has been used for link/unlink an account from an OAuth provider (GitHub in this case) to an existent backend account and allows to log in directly to the backend from a GitHub account.
 
 **Related urls:**
 - <a href="http://192.168.50.88/en/login" target="_blank">**Login page (click on ``Sign in with GitHub``)**</a>
@@ -86,7 +86,7 @@ Congratulations! You're now ready to use The Symfony Demo On Roids.
 ## RabbitMQ
 <img src="http://fotos.subefotos.com/39b1eaf4c05ef3124701805f9d3a80d7o.png">
 
-[@TODO: Add desc...]
+RabbitMQ has been used for generate a PDF file based on the article content from a consumer in a scalable way.
 
 **Related urls:**
 - <a href="http://192.168.50.88:15672" target="_blank">**RabbitMQ Admin panel (User: ``admin`` password: ``symfony.demo.on.roids``)**</a>
@@ -100,7 +100,7 @@ Congratulations! You're now ready to use The Symfony Demo On Roids.
 ## Redis
 <img src="http://fotos.subefotos.com/8e6e6a3507f8145c3bf72d3c9af53951o.png">
 
-[@TODO: Add desc...]
+Redis has been used for show the top 5 populars posts and set a cache lifetime of 3600 seconds.
 
 **Related urls:**
 - <a href="http://192.168.50.88/blog/top-5-popular-posts" target="_blank">**Top 5 popular posts**</a>
