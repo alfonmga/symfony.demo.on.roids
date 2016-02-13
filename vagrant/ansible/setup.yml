@@ -34,12 +34,8 @@
     - name: "Permissions wkhtmltox"
       command: chmod +x /usr/local/bin/wkhtmltopdf
 
-    - name: "Clone GitHub symfony.demo.on.roids repository"
-      git: repo=https://github.com/alfonsomga/symfony.demo.on.roids.git force=yes
-           dest=/var/www/app
-
-    - name: "Run composer and install dependencies"
-      command: chdir=/var/www/app composer install --dev --no-interaction --optimize-autoloader --prefer-dist --no-ansi --no-progress
+    - name: "Install symfony.demo.on.roids project with composer"
+      command: composer create-project alfonsomga/symfony.demo.on.roids --stability=dev --no-interaction --prefer-dist --no-ansi --no-progress /var/www/app/
       notify:
         - restart nginx
 
