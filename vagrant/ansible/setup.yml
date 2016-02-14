@@ -60,7 +60,7 @@
       service: name=rabbitmq-server state=restarted
 
     - name: "Create bash file for RabbitMQ consumers"
-      template: src=rabbitmq-consumers.j2 dest=/var/www/app/rabbitmq-consumers.sh mode=0777
+      template: src=templates/rabbitmq-consumers.j2 dest=/var/www/app/rabbitmq-consumers.sh mode=0777
 
     - name: "Run RabbitMQ consumers"
       command: chdir=/var/www/app ./rabbitmq-consumers.sh
