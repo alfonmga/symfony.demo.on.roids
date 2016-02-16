@@ -196,7 +196,9 @@ fos_elastica:
                         model: AppBundle\Entity\Post
                         provider: ~
                         listener:
-                            immediate: ~
+                            insert: true
+                            update: true
+                            delete: true
                         finder: ~
 
 old_sound_rabbit_mq:
