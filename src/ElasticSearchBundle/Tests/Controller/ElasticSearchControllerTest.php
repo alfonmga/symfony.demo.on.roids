@@ -39,8 +39,6 @@ class ElasticSearchControllerTest extends WebTestCase
         $this->entityManager->persist($post);
         $this->entityManager->flush();
 
-        self::populateElasticSearchIndices();
-
         $crawler = $client->request('GET', '/blog/search-results?q=Elasticsearch rocks ' . $randnumber);
         $this->assertEquals(Response::HTTP_OK, $client->getResponse()->getStatusCode());
         $this->assertEquals(
