@@ -1,6 +1,6 @@
 imports:
     - { resource: config.yml }
-    - { resource: @RabbitMQBundle/Resources/config/config_dev.yml }
+    - { resource: '@RabbitMQBundle/Resources/config/config_dev.yml' }
 
 framework:
     router:

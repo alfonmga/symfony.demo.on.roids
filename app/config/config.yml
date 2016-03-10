@@ -8,11 +8,11 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: services.yml }
-    - { resource: @ElasticSearchBundle/Resources/config/config.yml }
-    - { resource: @OAuthBundle/Resources/config/config.yml }
-    - { resource: @RabbitMQBundle/Resources/config/config.yml }
-    - { resource: @RedisBundle/Resources/config/config.yml }
-    - { resource: @RestBundle/Resources/config/config.yml }
+    - { resource: '@ElasticSearchBundle/Resources/config/config.yml' }
+    - { resource: '@OAuthBundle/Resources/config/config.yml' }
+    - { resource: '@RabbitMQBundle/Resources/config/config.yml' }
+    - { resource: '@RedisBundle/Resources/config/config.yml' }
+    - { resource: '@RestBundle/Resources/config/config.yml' }
 
 # These are the configuration parameters that define the application's behavior
 # and which are independent from the underlying technical infrastructure
