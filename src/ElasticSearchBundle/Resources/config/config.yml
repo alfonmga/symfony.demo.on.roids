@@ -1,0 +1,27 @@
+fos_elastica:
+    clients:
+        default: { host: localhost, port: 9200 }
+    indexes:
+        app:
+            index_name: app_%kernel.environment%
+            types:
+                post:
+                    mappings:
+                        id: ~
+                        slug:
+                            boost: 3.50
+                        title:
+                            boost: 10.00
+                        summary:
+                            boost: 5.00
+                        content:
+                            boost: 2.50
+                    persistence:
+                        driver: orm
+                        model: AppBundle\Entity\Post
+                        provider: ~
+                        listener:
+                            insert: true
+                            update: true
+                            delete: true
+                        finder: ~
