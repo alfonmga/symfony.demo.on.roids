@@ -1,5 +1,6 @@
 imports:
     - { resource: config.yml }
+    - { resource: @RabbitMQBundle/Resources/config/config_dev.yml }
 
 framework:
     router:
@@ -34,31 +35,3 @@ assetic:
 
 #swiftmailer:
 #    delivery_address: me@example.com
-
-old_sound_rabbit_mq:
-    connections:
-        default:
-            host:     'localhost'
-            port:     5672
-            user:     'admin'
-            password: 'symfony.demo.on.roids'
-            vhost:    '/'
-            lazy:     false
-            connection_timeout: 3
-            read_write_timeout: 3
-
-            # requires php-amqplib v2.4.1+ and PHP5.4+
-            keepalive: false
-
-            # requires php-amqplib v2.4.1+
-            heartbeat: 0
-    producers:
-        generate_pdf:
-            connection:       default
-            exchange_options: {name: 'generate-pdf_dev', type: direct}
-    consumers:
-        generate_pdf:
-            connection:       default
-            exchange_options: {name: 'generate-pdf_dev', type: direct}
-            queue_options:    {name: 'generate-pdf_dev'}
-            callback:         rabbitmq_pdf_generator_consumer
