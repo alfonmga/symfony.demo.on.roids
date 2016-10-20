@@ -27,7 +27,9 @@ The "Symfony Demo Application on Roids" is an application based on the original 
 <img src="http://fotos.subefotos.com/dd1a2c7b983291b6bba45185952f1eaeo.png">
 ### Prerequisites
 - [Vagrant](https://www.vagrantup.com/downloads.html) installed
+- Ansible (http://docs.ansible.com/ansible/intro_installation.html) installed
 - [Virtualbox](https://www.virtualbox.org/wiki/Downloads) installed
+
 
 ### Instructions
 1. ``git clone https://github.com/alfonsomga/symfony.demo.on.roids.git``
